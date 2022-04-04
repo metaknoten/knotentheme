@@ -1,0 +1,34 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block body %}
+<div class="flex-1">
+    <section class="w-full bg-diwoBlue mt-8 pb-32 pt-10 relative" style="background-color: {{page.header.headerColor|e}}">
+            <img class="mx-auto block w-10/12 max-w-3xl" src="{{page.media.images|first.url|e }}"/>
+            <div class="absolute bottom-20 right-5 text-white inline-block p-5 rounded font-bold text-3xl text-right"> {% block imageOverlay %}{% endblock %}
+                {% block headerImageOverlay %}
+                {% endblock %}
+            </div>
+    </section>
+	<section class="relative shadow max-w-screen-lg w-5/6 mx-auto -mt-20 px-12 rounded py-6 bg-white">
+
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="font-bold tracking-tight text-3xl my-4">{{page.title}}</h1>
+            <div class="flex gap-x-2">
+                {% block mainButtons %}{% endblock %}
+            </div>
+        </div>
+		<div class="prose">
+            {{ page.content|raw }}
+            
+            {% for module in page.collection() %}
+                {{ module.content|raw }}
+                {% if module.title == 'Programm' %}
+                    {% include 'partials/timetable.html.twig' %}
+                {% endif %}
+
+            {% endfor %}
+
+		</div>
+	</section>
+</div>
+{% endblock %}

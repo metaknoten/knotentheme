@@ -1,0 +1,64 @@
+{% set timetable = [
+    {
+        'day' : 'Montag 02.05.', 
+        'entries': [
+            {'slot': 1, 'name': 'Metaknoten', 'topic': 'Die Matrix der Möglichkeiten, Wer ists? Was machts?'},
+            {'slot': 2, 'name': 'Stephan Kropop + Alwin Weber', 'topic': 'Siebdruck Digitalglitch in Analog'},
+            {'slot': 3, 'name': 'Mitch Altman', 'topic': 'Hacking around the world'}
+        ]
+    },
+    {
+        'day' : 'Dienstag 03.05.', 
+        'entries': [
+            {'slot': 1, 'name': 'Ralf Schreiber', 'topic': 'PIEZO SOUNDS / PREAMP / SCULPTURES'},
+            {'slot': 2, 'name': 'Sandro Berneis', 'topic': 'Einführungen in das Schweissen/ Springsculptures'},
+            {'slot': 3, 'name': 'Zündstoffe', 'topic': 'Materialvermittlung/ Rosenwerk: Möglichkeiten dieser Stadt'}
+        ]
+    }, 
+    {
+        'day' : 'Mittwoch 04.05.', 
+        'entries': [
+            {'slot': 1, 'name': 'Stephan Kropop', 'topic': 'MIDI Controlled Animation mit Processing'},
+            {'slot': 2, 'name': 'Kazoosh! ', 'topic': 'Interaktive Installationen. Motörbörds á la kazoosh!'},
+            {'slot': 3, 'name': 'Maya Minder', 'topic': 'Biohacking'}
+        ]
+    },
+    {
+        'day' : 'Donnerstag 05.05.', 
+        'entries': [
+            {'slot': 1, 'name': 'Edwin Zschetzsche', 'topic': 'Von der Idee zur Platine KiCAD Grundlagen Workshop/ Ätzen'},
+            {'slot': 2, 'name': 'Steffen Koritsch', 'topic': '8-Bit Klangwelten mit Mikroprozessoren'},
+            {'slot': 3, 'name': 'Lisa Maria Baier', 'topic': 'Digital and analog trouble in the art world'}
+        ]
+    },
+    {
+        'day' : 'Freitag 06.05.', 
+        'entries': [
+            {'slot': 1, 'name': 'JanKo', 'topic': 'Streaming/ Radio/ Podcast + Reaper Grundlagen'},
+            {'slot': 2, 'name': 'Nils M. Weishaupt', 'topic': 'Neue Wege musikalischer Improvisation und Kollaboration über das Internet / Online-Jams (NINJAM)'},
+            {'slot': 3, 'name': 'Stefan Voglsinger', 'topic': 'Live NINJAM mit dem Setzkasten Wien'}
+        ]
+    },
+    {
+        'day' : 'Samstag 07.05.', 
+        'entries': [
+            {'slot': 1, 'name': 'Matthias Otto', 'topic': '3D-Art mit Blender'},
+            {'slot': 2, 'name': 'Fernando Bravo', 'topic': 'CNC / 3D- Druck'},
+            {'slot': 3, 'name': 'Marc R. Dusseiller', 'topic': 'How to set your tools free'}
+        ]
+    }
+] %}
+
+<section class="border-l-4 border-diwoBlue pl-4 my-8">
+{% for entry in timetable %}
+    <h4>{{entry.day}}</h4>
+    <ul>
+    {% for event in entry.entries %}
+        <li class="mb-2">
+            {{event.topic}}
+            <span class="text-sm text-gray font-bold"> – {{event.name}}</span
+        </li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+</section>
