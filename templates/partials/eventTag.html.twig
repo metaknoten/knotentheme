@@ -1,0 +1,16 @@
+{% set color = '#e56b6f' %}
+{% if page.header.type == 'workshop'%}
+    {% set color = '#040a25' %}
+{% elseif page.header.type == 'lecture' %}
+    {% set color = '#355171' %}
+{% endif %}
+
+<div class="inline-block text-sm px-4 py-1 rounded text-white" style="background-color: {{color}}">
+	{% if page.header.type == 'workshop'%}
+		Workshop
+	{% elseif page.header.type == 'lecture' %}
+		{{ "THEME_KNOTENTHEME.LECTURE"|t|e}}
+    {% elseif page.header.type == 'concert' %}
+        {{ "THEME_KNOTENTHEME.CONCERT"|t|e}}
+	{% endif %}
+</div>

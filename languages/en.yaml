@@ -1,2 +1,5 @@
-THEME_TEST:
-    ERROR: 'Error!'
+THEME_KNOTENTHEME:
+    BACK: 'back to overview'
+    LECTURE: 'Lecture'
+    CONCERT: 'Concert'
+    TIMETABLE: 'Timetable'

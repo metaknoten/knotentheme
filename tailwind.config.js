@@ -32,6 +32,8 @@ module.exports = {
       },
       diwoBlue: '#040a25',
       diwoRosa: '#723465',
+      gray: '#252525',
+      lightGray: '#cecece',
       black: colors.black,
       white: colors.white,
       red: '#e42928',
