@@ -7,11 +7,14 @@
 @layer components {
     .prose {
         img {
-            margin: 1rem 0;
+            margin-left: -5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            min-width: calc(100% + 5rem);
             display: block;
         }
         h1, h2, h3, h4, h5, h6 {
-            @apply font-bold tracking-tight;
+            @apply font-bold;
         }
         h1 {
             @apply text-3xl my-4;
@@ -25,8 +28,54 @@
         h4 {
             @apply text-lg my-2;
         }
-        a {
-            @apply text-blue-600 underline;
+    }
+    a {
+        @apply text-blue underline;
+    } 
+}
+
+@layer utilities {
+    .button {
+        @apply flex items-center hover:opacity-75 gap-x-2 uppercase font-bold text-sm text-white px-4 py-2 shadow;
+        text-decoration: none!important;
+    }
+    .langswitcher li {
+        display: inline-block;
+    }
+    .langswitcher .active {
+        font-weight: bold;
+    }
+    .meta {
+        @apply text-sm text-gray;
+    }
+    .meta:before {
+        display: inline-block;
+        content: '>>';
+        margin-right: 0.5rem;
+    }
+
+    .imageBlur {
+        animation: spin 5s linear infinite;
+    }
+
+    @keyframes spin {
+        20% {
+            filter: blur(0);
+        }
+        25% {
+            filter: blur(0.4rem);
+        }
+        30% {
+            filter: blur(0);
+        }
+        60% {
+            filter: blur(0);
+        }
+        65% {
+            filter: blur(0.4rem);
+        }
+        70% {
+            filter: blur(0);
         }
     }
 }

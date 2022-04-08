@@ -1,5 +1,9 @@
 THEME_KNOTENTHEME:
-    BACK: 'zurück zur Übersicht'
+    BACK: 'zurück'
     LECTURE: 'Vortrag'
     CONCERT: 'Konzert'
     TIMETABLE: 'Programm'
+    LANGUAGE: 'Sprache'
+    MENU: 'Menü'
+    CONTENT: 'Inhalt'
+    ERROR: '404 – nicht gefunden'

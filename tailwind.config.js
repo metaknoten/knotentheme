@@ -13,7 +13,7 @@ module.exports = {
   darkMode: 'class', //false or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ['"Inter"', 'system-ui']
+      sans: ['"Inconsolata"', 'system-ui']
     },
     extend: {
       screens: {
@@ -32,13 +32,13 @@ module.exports = {
       },
       diwoBlue: '#040a25',
       diwoRosa: '#723465',
-      gray: '#252525',
-      lightGray: '#cecece',
+      gray: '#6a6a6a',
+      lightGray: '#dfdfdf',
       black: colors.black,
       white: colors.white,
       red: '#e42928',
       green: colors.green,
-      blue: colors.blue,
+      blue: '#040493',
       orange: colors.orange,
       indigo: colors.indigo,
       transparent: 'transparent',
