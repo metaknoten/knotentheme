@@ -1,17 +1,31 @@
+<h2 id="timetable" class="lg:-ml-20">Programm</h2>
 <section class="my-8">
 {% set dateSeperator = '' %}
 {% for p in page.children if p != page and p.visible%}
         {% if p.header.day != dateSeperator %}
+            {% if not loop.first %}
+                </div>
+            {% endif %}
             {% set dateSeperator = p.header.day %}
-            <h4>{{dateSeperator}}</h4>
+            <h3 class="mb-8 lg:-ml-20">{{dateSeperator}}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3  gap-x-4 lg:-ml-20 lg:-mr-20 mb-6">
         {% endif %}
 
-        <div class="flex justify-between items-center hover:bg-lightGray py-2 px-2 -ml-2">
-            <div class="grow">
-                <span class="text-sm font-bold">{{p.header.time}}:</span>
+        <div class="mb-8">
+            {% if p.media.images|first %}
+                {% set imageURL = p.media.images|first.cropResize(600, 400).url|e %}
+            {% else %}
+                {% set imageURL = url('theme://images/bg.png').cropResize(600, 400)|e %}
+            {% endif %}
+            <a class="w-full h-40 overflow-hidden bg-center bg-cover mb-2 relative block grayscale" href="{{p.url}}" style="background-image: url('{{imageURL}}?resize=400,200')">
+                <div class="absolute bottom-2 right-2 shadow">
+                    {% include "partials/eventTag.html.twig" with {page: p} %}
+                </div>
+            </a>
+            <div class="md:py-4 md:pr-2">
+                <span class="text-sm font-bold">{{p.header.time}} Uhr:</span><br>
                 <a class="underline text-blue" href="{{p.url}}">{{ p.title }}</a>
             </div>
-            {% include "partials/eventTag.html.twig" with {page: p} %}
         </div>
 {% endfor %}
 </section>

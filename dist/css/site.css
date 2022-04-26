@@ -640,8 +640,14 @@ video {
   margin-left: -5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  min-width: calc(100% + 5rem);
+  width: auto;
+  max-width: calc(100% + 5rem);
+  max-height: 60vh;
   display: block;
+}
+
+.prose iframe {
+  max-width: 100%;
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
@@ -676,9 +682,20 @@ video {
   line-height: 1.75rem;
 }
 
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: descimal;
+}
+
 a {
   --tw-text-opacity: 1;
   color: rgba(4, 4, 147, var(--tw-text-opacity));
+}
+
+a:hover {
   text-decoration: underline;
 }
 

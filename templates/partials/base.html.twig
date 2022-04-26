@@ -10,6 +10,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% include 'partials/metadata.html.twig' %}
 
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Expires" content="-1"/>
+
         <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
         <link rel="canonical" href="{{ page.url(true, true)|e }}" />
 
@@ -32,7 +36,7 @@
 
 {% block header %}
 
-<div class="mx-4 md:mx-20">
+<div class="max-w-screen-md w-5/6 mx-auto">
     <div class="mt-2 flex flex-col flex-wrap gap-y-3 relative">
             <a class="md:-ml-8 block imageBlur" href="{{ home_url|e }}">
                 <img class="max-h-24" src="{{ url('theme://images/logo.svg') }}" alt="{{ site.title }}"/>
@@ -47,7 +51,7 @@
 {% endblock %}
 
 {% block body %}
-    <section class="flex-1 max-w-screen-md md:w-4/6 mx-4 md:mx-20 py-14" id="body">
+    <section class="flex-1 max-w-screen-md w-5/6 mx-auto py-14" id="body">
         <div class="prose">
             <div class="meta">{{ "THEME_KNOTENTHEME.CONTENT"|t|e}}</div>
             {% block content %}{% endblock %}
@@ -56,12 +60,13 @@
 {% endblock %}
 
 {% block footer %}
-    <footer class="max-w-screen-md md:w-4/6 mx-4 md:mx-20 py-10">
+    <footer class="max-w-screen-md w-5/6 mx-auto py-10">
             <p class="meta">{{ "THEME_KNOTENTHEME.LANGUAGE"|t|e}}</p>
             {% include 'partials/langswitcher.html.twig' %}
             <p class="meta mt-4">Social Media</p>
                 <li class="inline-block"><a href="https://twitter.com/metaknoten" target="_blank">Twitter</a></li>
                 <li class="inline-block"><a href="https://mastodon.social/@metaknoten" target="_blank">Mastodon</a></li>
+                <li class="inline-block"><a href="https://www.facebook.com/MetaKnoten-108029651880268" target="_blank">Facebook</a></li>
             </ul>
     </footer>
 {% endblock %}
