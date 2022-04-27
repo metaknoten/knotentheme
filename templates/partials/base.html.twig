@@ -20,16 +20,15 @@
     {% endblock head %}
 
     {% block stylesheets %}
-       {#  {% do assets.addCss('theme://dist/css/site.css') %} #}
-       {% do assets.addCss('theme://dist/css/site' ~ extension ~ '.css', 98) %}
+        {% do assets.addCss('theme://dist/css/site' ~ extension ~ '.css', 98) %}
     {% endblock %}
 
     {% block javascripts %}
     {% endblock %}
 
     {% block assets deferred %}
-    {{ assets.css()|raw }}
-    {{ assets.js()|raw }}
+        {{ assets.css()|raw }}
+        {{ assets.js()|raw }}
     {% endblock %}
 </head>
 <body id="top" class="flex flex-col min-h-screen {{ page.header.body_classes|e }} {{ config.theme.production ?: 'debug-screens' }}"></body>

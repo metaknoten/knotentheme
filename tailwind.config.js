@@ -68,10 +68,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-/*   plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
-    require('tailwindcss-debug-screens'),
-  ], */
   important: false,
 }
