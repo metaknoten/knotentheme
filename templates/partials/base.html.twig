@@ -16,12 +16,9 @@
 
         <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
         <link rel="canonical" href="{{ page.url(true, true)|e }}" />
+        <link rel="stylesheet" href="/user/themes/knotentheme/dist/css/site.min.css">
 
     {% endblock head %}
-
-    {% block stylesheets %}
-        {% do assets.addCss('theme://dist/css/site' ~ extension ~ '.css', 98) %}
-    {% endblock %}
 
     {% block javascripts %}
     {% endblock %}
@@ -63,9 +60,11 @@
             <p class="meta">{{ "THEME_KNOTENTHEME.LANGUAGE"|t|e}}</p>
             {% include 'partials/langswitcher.html.twig' %}
             <p class="meta mt-4">Social Media</p>
-                <li class="inline-block"><a href="https://twitter.com/metaknoten" target="_blank">Twitter</a></li>
-                <li class="inline-block"><a href="https://mastodon.social/@metaknoten" target="_blank">Mastodon</a></li>
-                <li class="inline-block"><a href="https://www.facebook.com/MetaKnoten-108029651880268" target="_blank">Facebook</a></li>
+            <ul>
+                <li class="inline-block mr-2"><a href="https://twitter.com/metaknoten" target="_blank">Twitter</a></li>
+                <li class="inline-block mr-2"><a href="https://mastodon.social/@metaknoten" target="_blank">Mastodon</a></li>
+                <li class="inline-block mr-2"><a href="https://www.facebook.com/MetaKnoten-108029651880268" target="_blank">Facebook</a></li>
+                <li class="inline-block mr-2"><a href="https://www.instagram.com/metaknoten/" target="_blank">Instagram</a></li>
             </ul>
     </footer>
 {% endblock %}
