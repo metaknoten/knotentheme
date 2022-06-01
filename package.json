@@ -6,8 +6,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss css/site.css -o dist/css/site.css --verbose",
-    "watch": "postcss css/site.css -o dist/css/site.css --watch --verbose",
+    "build": "postcss css/site.css -o dist/css/site.min.css --verbose",
+    "watch": "postcss css/site.css -o dist/css/site.min.css --watch --verbose",
     "prod": "postcss css/site.css -o dist/css/site.min.css --env production --verbose"
   },
   "dependencies": {},

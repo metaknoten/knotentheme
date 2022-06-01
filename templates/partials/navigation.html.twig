@@ -1,13 +1,26 @@
 {% macro loop(page) %}
-<span class="meta block mb-2">{{ "THEME_KNOTENTHEME.MENU"|t|e}}</span>
+<span class="block mb-2 meta">{{ "THEME_KNOTENTHEME.MENU"|t|e}}</span>
 <ul class="flex flex-wrap gap-y-2 gap-x-4">
     {% for p in page.children.visible %}
         {% set current_page = (p.active or p.activeChild) ? 'selected font-bold' : '' %}
-            <li class="{{ current_page|e }}">
+            <li class="relative group {{ current_page|e }}">
                 <a href="{{ p.url|e }}">
-                    {% if p.header.icon %}<i class="fa fa-{{ p.header.icon|e }}"></i>{% endif %}
                     {{ p.menu|e }}
                 </a>
+                {% if p.children.visible.count > 0 %}
+                    <ul class="absolute hidden group-hover:block z-50 w-[300px] text-sm top-full m-5 bg-white p-5">
+                    {% for pSub in p.children.visible %}
+                        {% if pSub.template != 'diwoEvent' %}
+                            {% set current_page = (pSub.active or pSub.activeChild) ? 'selected font-bold' : '' %}
+                            <li class="block {{ current_page|e }}">
+                                <a href="{{ pSub.url|e }}">
+                                    {{ pSub.menu|e }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                {% endif %}
             </li>
     {% endfor %}
 </ul>
