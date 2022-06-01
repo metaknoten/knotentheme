@@ -1,7 +1,7 @@
-const { colors } = require('tailwindcss/defaultTheme');
+const { colors } = require('tailwindcss/colors');
 
 module.exports = {
-  purge: [
+  content: [
     '../../config/**/*.yaml',
     '../../pages/**/*.md',
     './blueprints/**/*.yaml',
@@ -10,7 +10,6 @@ module.exports = {
     './knotentheme.yaml',
     './knotentheme.php'
   ],
-  darkMode: 'class', //false or 'media' or 'class'
   theme: {
     fontFamily: {
       sans: ['"Inconsolata"', 'system-ui']
@@ -22,27 +21,15 @@ module.exports = {
         lg: '1024px',
         xl: '1280px',
         '2xl': '1536px'
-      }
-    },
-    colors: {
-      'primary': {
-        'lighter': colors.yellow['300'],
-        DEFAULT: colors.yellow['400'],
-        'darker' : colors.yellow['500'],
       },
-      diwoBlue: '#040a25',
-      diwoRosa: '#723465',
-      gray: '#6a6a6a',
-      lightGray: '#dfdfdf',
-      black: colors.black,
-      white: colors.white,
-      red: '#e42928',
-      green: colors.green,
-      blue: '#040493',
-      orange: colors.orange,
-      indigo: colors.indigo,
-      transparent: 'transparent',
-      'inherit': 'inherit',
+      colors: {
+        diwoBlue: '#040a25',
+        diwoRosa: '#723465',
+        lightGray: '#dfdfdf',
+        darkGray: '#171717',
+        red: '#e42928',
+        blue: '#040493',
+      }
     },
     typography: (theme) => ({
       DEFAULT: {
@@ -64,9 +51,6 @@ module.exports = {
         }
       }
     }),
-  },
-  variants: {
-    extend: {},
   },
   important: false,
 }
