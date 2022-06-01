@@ -22,16 +22,16 @@
             @apply font-bold;
         }
         h1 {
-            @apply text-3xl my-4;
+            @apply my-4 text-3xl;
         }
         h2 {
-            @apply text-2xl my-3;
+            @apply my-3 text-2xl;
         }
         h3 {
-            @apply text-xl my-2;
+            @apply my-2 text-xl;
         }
         h4 {
-            @apply text-lg my-2;
+            @apply my-2 text-lg;
         }
         ul {
             list-style-type: disc;
@@ -42,25 +42,23 @@
     }
     a {
         @apply text-blue hover:underline;
-    } 
+        @media (prefers-color-scheme: dark) {
+            @apply text-sky-500;
+        }
+    }
 }
-
-    .langswitcher li {
-        display: inline-block;
-    }
-    
-    .langswitcher .active {
-        font-weight: bold;
-    }
 
 @layer utilities {
     .button {
-        @apply flex items-center hover:opacity-75 gap-x-2 uppercase font-bold text-sm text-white px-4 py-2 shadow;
+        @apply flex items-center px-4 py-2 text-sm font-bold text-white uppercase shadow hover:opacity-75 gap-x-2;
         text-decoration: none!important;
     }
 
     .meta {
-        @apply text-sm text-gray;
+        @apply text-sm text-slate-500;
+        @media (prefers-color-scheme: dark) {
+            @apply text-lightGray;
+        }
     }
     .meta:before {
         display: inline-block;
@@ -93,3 +91,17 @@
         }
     }
 }
+
+.langswitcher {
+    transform: none;
+    margin: 0;
+}
+
+.langswitcher li {
+    display: inline-block;
+}
+
+.langswitcher .active {
+    font-weight: bold;
+}
+    
