@@ -1,0 +1,23 @@
+name: Publish to Website
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+      - name: 🌱 Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - name: 🔨 Build TailwindCSS
+        run: npm install && npm run prod
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: www389.your-server.de
+          username: metaknd_0
+          password: ${{ secrets.FTPS_PASSWORD }}
+          server-dir: user/themes/knotentheme/
+          protocol: ftps
+          port: 21
