@@ -20,4 +20,4 @@ jobs:
           password: ${{ secrets.FTPS_PASSWORD }}
           server-dir: user/themes/knotentheme/
           protocol: ftps
-          port: 22
+          port: 21
