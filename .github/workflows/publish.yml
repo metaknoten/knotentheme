@@ -15,6 +15,6 @@ jobs:
       - name: FTP-Deploy
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          ftp-server: sftp://www389.your-server.de/user/themes/knotentheme/
+          ftp-server: ftp://www389.your-server.de:22/user/themes/knotentheme/
           ftp-username: metaknd_0
           ftp-password: ${{ secrets.FTPS_PASSWORD }}
