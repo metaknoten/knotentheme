@@ -1,17 +1,32 @@
 name: Publish to Website
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
+
       - name: 🌱 Install Node
         uses: actions/setup-node@v3
         with:
           node-version: '14'
+
       - name: 🔨 Build TailwindCSS
         run: npm install && npm run prod
+
+      - name: 🏕️ Set Environment to production
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: 'knotentheme.yaml'
+          propertyPath: 'production'
+          value: true
+          commitChange: false
+          updateFile: true
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
