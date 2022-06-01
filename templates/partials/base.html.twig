@@ -16,7 +16,7 @@
 
         <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
         <link rel="canonical" href="{{ page.url(true, true)|e }}" />
-        <link rel="stylesheet" href="/user/themes/knotentheme/dist/css/site.min.css">
+        <link rel="stylesheet" href="/user/themes/knotentheme/dist/css/site.css">
 
     {% endblock head %}
 
@@ -28,17 +28,17 @@
         {{ assets.js()|raw }}
     {% endblock %}
 </head>
-<body id="top" class="flex flex-col min-h-screen {{ page.header.body_classes|e }} {{ config.theme.production ?: 'debug-screens' }}"></body>
+<body id="top" class="flex flex-col min-h-screen dark:bg-black {{ page.header.body_classes|e }} {{ config.theme.production ?: 'debug-screens' }}"></body>
 
 {% block header %}
 
-<div class="max-w-screen-md w-5/6 mx-auto">
-    <div class="mt-2 flex flex-col flex-wrap gap-y-3 relative">
-            <a class="md:-ml-8 block imageBlur" href="{{ home_url|e }}">
+<div class="w-5/6 max-w-screen-md mx-auto">
+    <div class="relative flex flex-col flex-wrap mt-2 gap-y-3">
+            <a class="block md:-ml-8 imageBlur" href="{{ home_url|e }}">
                 <img class="max-h-24" src="{{ url('theme://images/logo.svg') }}" alt="{{ site.title }}"/>
             </a>
             {% block header_navigation %}
-                <nav class="main-nav my-4">
+                <nav class="my-4 main-nav">
                     {% include 'partials/navigation.html.twig' %}
                 </nav>
             {% endblock %}
@@ -47,7 +47,7 @@
 {% endblock %}
 
 {% block body %}
-    <section class="flex-1 max-w-screen-md w-5/6 mx-auto py-14" id="body">
+    <section class="flex-1 w-5/6 max-w-screen-md mx-auto py-14" id="body">
         <div class="prose">
             <div class="meta">{{ "THEME_KNOTENTHEME.CONTENT"|t|e}}</div>
             {% block content %}{% endblock %}
@@ -56,15 +56,16 @@
 {% endblock %}
 
 {% block footer %}
-    <footer class="max-w-screen-md w-5/6 mx-auto py-10">
+    <footer class="w-5/6 max-w-screen-md py-10 mx-auto">
             <p class="meta">{{ "THEME_KNOTENTHEME.LANGUAGE"|t|e}}</p>
             {% include 'partials/langswitcher.html.twig' %}
-            <p class="meta mt-4">Social Media</p>
+            <p class="mt-4 meta">Social Media</p>
             <ul>
                 <li class="inline-block mr-2"><a href="https://twitter.com/metaknoten" target="_blank">Twitter</a></li>
                 <li class="inline-block mr-2"><a href="https://mastodon.social/@metaknoten" target="_blank">Mastodon</a></li>
                 <li class="inline-block mr-2"><a href="https://www.facebook.com/MetaKnoten-108029651880268" target="_blank">Facebook</a></li>
                 <li class="inline-block mr-2"><a href="https://www.instagram.com/metaknoten/" target="_blank">Instagram</a></li>
+                <li class="inline-block mr-2"><a href="https://www.youtube.com/channel/UCeqEKQtCLZwIZDvcJDZKlyg" target="_blank">Youtube</a></li>
             </ul>
     </footer>
 {% endblock %}
