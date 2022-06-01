@@ -5,14 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build-Action
-        uses: actions/setup-node@v3
-          - with:
-            node-version: '14'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
         run: npm install && npm run prod
-
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      - uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
           ftp-server: sftp://www389.your-server.de/user/themes/knotentheme/
           ftp-username: metaknd_0
