@@ -15,8 +15,8 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          ftp-server: ftp://www389.your-server.de/user/themes/knotentheme/
-          ftp-username: metaknd_0
-          ftp-password: ${{ secrets.FTPS_PASSWORD }}
+          server: ftp://www389.your-server.de/user/themes/knotentheme/
+          username: metaknd_0
+          password: ${{ secrets.FTPS_PASSWORD }}
           protocol: ftps
           port: 22
