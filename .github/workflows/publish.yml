@@ -4,17 +4,19 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 🚚 Get latest code
         uses: actions/checkout@v3
-      - name:  Install Node
+      - name: 🌱 Install Node
         uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - name: Build TailwindCSS
+      - name: 🔨 Build TailwindCSS
         run: npm install && npm run prod
-      - name: FTP-Deploy
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          ftp-server: ftp://www389.your-server.de:22/user/themes/knotentheme/
+          ftp-server: ftp://www389.your-server.de/user/themes/knotentheme/
           ftp-username: metaknd_0
           ftp-password: ${{ secrets.FTPS_PASSWORD }}
+          protocol: ftps
+          port: 22
