@@ -23,7 +23,7 @@ The Github action ensures that the theme get's published to the corresponding we
 * Error
 * Flex Objects
 * Form
-* LangSwitcher
+* LangSwitcher (with the option: `built_in_css: false`)
 * Login
 * Markdown Notices
 * Problems
