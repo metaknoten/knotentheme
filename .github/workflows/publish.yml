@@ -23,13 +23,9 @@ jobs:
         with:
           valueFile: 'knotentheme.yaml'
           propertyPath: 'production'
-          value: true
+          value: "!!bool 'true'"
           commitChange: false
           updateFile: true
-
-      - name: 🧹 Cleanup Quotes around Environment Variable production
-        run: |
-          sed -i -e "s/production: 'true'/production: true/g" knotentheme.yaml
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
