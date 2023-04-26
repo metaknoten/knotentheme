@@ -15,7 +15,7 @@
             {% if p.media.images|first %}
                 {% set imageURL = p.media.images|first.cropResize(600, 400).url|e %}
             {% else %}
-                {% set imageURL = url('theme://images/bg.png').cropResize(600, 400)|e %}
+                {% set imageURL = url('theme://images/bg.png')|e %}
             {% endif %}
             <a class="relative block w-full h-40 mb-2 overflow-hidden bg-center bg-cover" href="{{p.url}}" style="background-image: url('{{imageURL}}?resize=400,200')">
                 <div class="absolute shadow bottom-2 right-2">

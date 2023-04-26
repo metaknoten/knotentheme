@@ -1,0 +1,37 @@
+<section class="grid grid-cols-2 gap-4 my-8">
+
+    {% set options = { items: {'@page.children': '/veranstaltungen'}} %}
+
+	{% set my_collection = sorter.byDate(page.collection(options), 'start', showUpcoming) %}
+
+	{% set count = 0 %}
+    {% for p in my_collection if p.visible %}
+
+    {% if (showUpcoming and strtotime(p.header.start) > time()) or (showUpcoming == false and strtotime(p.header.start) < time())%}
+		{% set count = count + 1 %}
+		{% if limit == false or (count - 1) < 2 %}
+			<div class="mb-8">
+				{% if p.media.images|first %}
+					{% set imageURL = p.media.images|first.cropResize(600, 400).url|e %}
+				{% else %}
+					{% set imageURL = url('theme://images/bg.png').cropResize(600, 400)|e %}
+				{% endif %}
+				<a class="relative block w-full h-40 mb-4 overflow-hidden bg-center bg-cover" href="{{p.url}}" style="background-image: url('{{imageURL}}?resize=400,200')">
+					<div class="absolute shadow bottom-2 right-2">
+					</div>
+				</a>
+				<span class="block text-sm font-bold">
+					{{strtotime(p.header.start)|date("d.m.Y")}}
+					{% if p.header.end %}
+						–
+						{{strtotime(p.header.end)|date("d.m.Y")}}
+					{% endif %}
+				</span>
+				<a class="underline" href="{{p.url}}">{{ p.title }}</a>
+			</div>
+		{% endif %}
+		
+        {% endif %}
+	{% endfor %}
+</section>
+

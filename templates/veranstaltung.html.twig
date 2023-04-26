@@ -1,0 +1,14 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <h1 class="flex items-end justify-between">
+        {{page.title}}
+        <span class="text-sm">{{strtotime(p.header.start)|date("d.m.Y")}}
+            {% if p.header.end %}
+                –
+                {{strtotime(p.header.end)|date("d.m.Y")}}
+            {% endif %}
+        </span>
+    </h1>
+	{{ page.content|raw }}
+{% endblock %}
