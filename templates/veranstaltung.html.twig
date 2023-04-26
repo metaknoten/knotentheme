@@ -3,10 +3,10 @@
 {% block content %}
     <h1 class="flex items-end justify-between">
         {{page.title}}
-        <span class="text-sm">{{strtotime(p.header.start)|date("d.m.Y")}}
-            {% if p.header.end %}
+        <span class="text-sm">{{strtotime(page.header.start)|date("d.m.Y")}}
+            {% if page.header.end %}
                 –
-                {{strtotime(p.header.end)|date("d.m.Y")}}
+                {{strtotime(page.header.end)|date("d.m.Y")}}
             {% endif %}
         </span>
     </h1>
