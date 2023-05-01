@@ -7,13 +7,21 @@
 @layer components {
     .prose {
         img {
-            margin-left: -5rem;
             margin-top: 1rem;
             margin-bottom: 1rem;
             width: auto;
-            max-width: calc(100% + 5rem);
             max-height: 60vh;
             display: block;
+            margin-left: 0;
+            max-width: 100%;
+            @media screen(md) {
+                margin-left: -5rem;
+                max-width: calc(100% + 5rem);
+            }
+        }
+        p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
         iframe {
             max-width: 100%;
