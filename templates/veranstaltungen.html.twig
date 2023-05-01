@@ -5,5 +5,7 @@
     {% include 'partials/events.html.twig' with {'showUpcoming': true, 'limit': false} %}
     <h1>{{ "THEME_KNOTENTHEME.PAST_EVENTS"|t|e}}</h1>
     {% include 'partials/events.html.twig' with {'showUpcoming': false, 'limit': false} %}
+
+    {{ page.content|raw }}
 {% endblock %}
 
