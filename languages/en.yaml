@@ -7,3 +7,5 @@ THEME_KNOTENTHEME:
     MENU: 'Menu'
     CONTENT: 'Content'
     ERROR: '404 – not found'
+    UPCOMING_EVENTS: 'Upcoming events'
+    PAST_EVENTS: 'Past events'

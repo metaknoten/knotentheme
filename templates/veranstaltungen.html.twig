@@ -1,9 +1,9 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-	<h1>Anstehende Veranstaltungen</h1>
+	<h1>{{ "THEME_KNOTENTHEME.UPCOMING_EVENTS"|t|e}}</h1>
     {% include 'partials/events.html.twig' with {'showUpcoming': true, 'limit': false} %}
-    <h1>Vergangene Veranstaltungen</h1>
+    <h1>{{ "THEME_KNOTENTHEME.PAST_EVENTS"|t|e}}</h1>
     {% include 'partials/events.html.twig' with {'showUpcoming': false, 'limit': false} %}
 {% endblock %}
 
