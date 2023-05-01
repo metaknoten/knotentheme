@@ -1,0 +1,28 @@
+{# inspired: https://github.com/engelsystem/engelsystem/blob/main/resources/views/api/ical.twig #}
+
+{% set dateFormat = 'Ymd\\THis\\Z' %}
+{% set replacement = {'\n': '\\n'} %}
+{% set options = { items: {'@page.children': '/veranstaltungen'}} %}
+{% set entries = sorter.byDate(page.collection(options), 'start', true) %}
+
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//-/metaknoten.net//DE
+CALSCALE:GREGORIAN
+{% for p in entries if p.visible and p.header.start %}
+BEGIN:VEVENT
+UID:{{ p.id }}
+DTSTAMP:{{ gmdate(dateFormat, strtotime(p.header.start)) }}
+DTSTART:{{ gmdate(dateFormat, strtotime(p.header.start)) }}
+{% if p.header.end %}
+DTEND:{{ gmdate(dateFormat, strtotime(p.header.end)) }}
+{% endif %}
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DESCRIPTION:
+SUMMARY:{{ p.title | replace(replacement) | raw }}
+URL:htts://metaknoten.net{{ p.url }}
+END:VEVENT
+{% endfor %}
+END:VCALENDAR
+
