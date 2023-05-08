@@ -5,9 +5,29 @@
 	{% set my_collection = sorter.byDate(page.collection(options), 'start', showUpcoming) %}
 
 	{% set count = 0 %}
+
+
+	
     {% for p in my_collection if p.visible %}
 
-    {% if (showUpcoming and strtotime(p.header.start) > time()) or (showUpcoming == false and strtotime(p.header.start) < time())%}
+	{% set show = false %}
+	{% set start = p.header.start ? strtotime(p.header.start) : false %}
+	{% set end = p.header.end ? strtotime(p.header.end) : false %}
+	{% if showUpcoming %}
+		{% if (start and end) %}
+			{% set show = (end > time()) %}	
+		{% else %}
+			{% set show = (start > time()) %}	
+		{% endif %}
+	{% else %}
+		{% if (start and end) %}
+			{% set show = (end < time()) %}
+		{% else %}
+			{% set show = (start < time()) %}
+		{% endif %}
+	{% endif %}
+
+    {% if show %}
 		{% set count = count + 1 %}
 		{% if limit == false or (count - 1) < 2 %}
 			<div class="mb-8">
