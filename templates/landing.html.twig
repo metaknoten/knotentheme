@@ -1,7 +1,12 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    <h2 class="flex items-center justify-between">Anstehende Veranstaltungen<span class="text-sm font-normal"><a href="/veranstaltungen">Alle Veranstaltungen</a></span></h2>
+    <h2 class="flex items-end justify-between gap-2">
+        {{ "THEME_KNOTENTHEME.UPCOMING_EVENTS"|t|e}}
+        <span class="text-sm font-normal text-right">
+            <a href="/{{page.language}}/veranstaltungen">{{ "THEME_KNOTENTHEME.ALL_EVENTS"|t|e}}</a>
+        </span>
+    </h2>
     {% include 'partials/events.html.twig' with {'showUpcoming': true, 'limit': 2} %}
     {{ page.content|raw }}
 {% endblock %}

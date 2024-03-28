@@ -9,3 +9,5 @@ THEME_KNOTENTHEME:
     ERROR: '404 – not found'
     UPCOMING_EVENTS: 'Upcoming events'
     PAST_EVENTS: 'Past events'
+    ALL_EVENTS: 'All events'
+    NO_EVENTS: 'No events'

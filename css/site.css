@@ -74,28 +74,12 @@
         margin-right: 0.5rem;
     }
 
-    .imageBlur {
-        animation: spin 5s linear infinite;
+    .rotate-logo {
+        animation: spin 200s linear infinite;
     }
-
     @keyframes spin {
-        20% {
-            filter: blur(0);
-        }
-        25% {
-            filter: blur(0.4rem);
-        }
-        30% {
-            filter: blur(0);
-        }
-        60% {
-            filter: blur(0);
-        }
-        65% {
-            filter: blur(0.4rem);
-        }
-        70% {
-            filter: blur(0);
+        100% {
+            transform: rotate(360deg);
         }
     }
 }

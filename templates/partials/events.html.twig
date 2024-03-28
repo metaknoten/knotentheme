@@ -53,5 +53,9 @@
 		
         {% endif %}
 	{% endfor %}
+	{% if count == 0 %}
+		<span class="text-slate-500">{{ "THEME_KNOTENTHEME.NO_EVENTS"|t|e}}</span>
+	{% endif %}
+
 </section>
 

@@ -1,16 +1,17 @@
 {% macro loop(page) %}
-<span class="meta block mb-2">{{ "THEME_KNOTENTHEME.MENU"|t|e}}</span>
-<ul class="flex flex-wrap gap-y-2 gap-x-4">
-    {% for p in page.children.visible %}
-        {% set current_page = (p.active or p.activeChild) ? 'selected font-bold' : '' %}
-            <li class="{{ current_page|e }}">
-                <a href="{{ p.url|e }}">
-                    {% if p.header.icon %}<i class="fa fa-{{ p.header.icon|e }}"></i>{% endif %}
-                    {{ p.menu|e }}
-                </a>
-            </li>
-    {% endfor %}
-</ul>
+
+    <ul class="flex flex-wrap gap-y-2 gap-x-4">
+        {% for p in page.children.visible %}
+            {% set current_page = (p.active or p.activeChild) ? 'selected font-bold' : '' %}
+                <li class="{{ current_page|e }}">
+                    <a href="{{ p.url|e }}">
+                        {% if p.header.icon %}<i class="fa fa-{{ p.header.icon|e }}"></i>{% endif %}
+                        {{ p.menu|e }}
+                    </a>
+                </li>
+        {% endfor %}
+    </ul>
+
 {% endmacro %}
 
 <ul>
